@@ -22,5 +22,6 @@
    <persistence-unit name="primary">
       <jta-data-source>java:/titec_mariadbds</jta-data-source>
       <class>titec.proyecto.rest.Model.Paises</class>
+      <class>titec.proyecto.rest.Model.Categoria</class>
    </persistence-unit>
 </persistence>
