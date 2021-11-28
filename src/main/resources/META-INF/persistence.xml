@@ -23,5 +23,6 @@
       <jta-data-source>java:/titec_mariadbds</jta-data-source>
       <class>titec.proyecto.rest.Model.Paises</class>
       <class>titec.proyecto.rest.Model.Categoria</class>
+      <class>titec.proyecto.rest.Model.EntitiesFollow.UsuarioFollow</class>
    </persistence-unit>
 </persistence>
