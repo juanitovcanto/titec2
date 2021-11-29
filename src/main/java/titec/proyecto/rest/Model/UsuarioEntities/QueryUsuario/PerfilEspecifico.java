@@ -1,8 +1,9 @@
-package titec.proyecto.rest.Model.UsuarioEntities.CreacionUsuario;
+package titec.proyecto.rest.Model.UsuarioEntities.QueryUsuario;
 
 import java.io.Serializable;
 import java.time.LocalDate;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -15,7 +16,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="PERFIL")
-public class Perfil implements Serializable{
+public class PerfilEspecifico implements Serializable {
   private static final long serialVersionUID = 1L;
 
   @Id
@@ -31,74 +32,90 @@ public class Perfil implements Serializable{
   @Column(name = "IMAGEN")
   private String imagen;
 
-  @Column(name = "PAIS")
-  private Long idPais;
+  @OneToOne(cascade = CascadeType.ALL)
+  @JoinColumn(name = "PAIS",referencedColumnName = "ID")
+  private PaisesEspecifico pais;
 
   @OneToOne(fetch = FetchType.LAZY)
   @MapsId
   @JoinColumn(name = "ID_USER")
-  private Usuario usuario;
+  private UsuarioEspecifico usuario;
 
-  public Perfil() {
+
+  
+  public PerfilEspecifico() {
   }
 
-  public Perfil(Long id, String biografia, LocalDate fecha, String imagen, Long idPais, Usuario usuario) {
+
+  public PerfilEspecifico(Long id, String biografia, LocalDate fecha, String imagen, PaisesEspecifico pais,
+      UsuarioEspecifico usuario) {
     this.id = id;
     this.biografia = biografia;
     this.fecha = fecha;
     this.imagen = imagen;
-    this.idPais = idPais;
+    this.pais = pais;
     this.usuario = usuario;
   }
+
 
   public Long getId() {
     return id;
   }
 
+
   public void setId(Long id) {
     this.id = id;
   }
+
 
   public String getBiografia() {
     return biografia;
   }
 
+
   public void setBiografia(String biografia) {
     this.biografia = biografia;
   }
+
 
   public LocalDate getFecha() {
     return fecha;
   }
 
+
   public void setFecha(LocalDate fecha) {
     this.fecha = fecha;
   }
+
 
   public String getImagen() {
     return imagen;
   }
 
+
   public void setImagen(String imagen) {
     this.imagen = imagen;
   }
 
-  public Long getIdPais() {
-    return idPais;
+
+  public PaisesEspecifico getPais() {
+    return pais;
   }
 
-  public void setIdPais(Long idPais) {
-    this.idPais = idPais;
+
+  public void setPais(PaisesEspecifico pais) {
+    this.pais = pais;
   }
 
-  public Usuario getUsuario() {
+
+  public UsuarioEspecifico getUsuario() {
     return usuario;
   }
 
-  public void setUsuario(Usuario usuario) {
+
+  public void setUsuario(UsuarioEspecifico usuario) {
     this.usuario = usuario;
   }
 
   
-
 }
