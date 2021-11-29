@@ -26,6 +26,8 @@
       <class>titec.proyecto.rest.Model.UsuarioEntities.CreacionUsuario.Usuario</class>
       <class>titec.proyecto.rest.Model.UsuarioEntities.CreacionUsuario.TipoUsuario</class>
       <class>titec.proyecto.rest.Model.UsuarioEntities.CreacionUsuario.Perfil</class>
+      <class>titec.proyecto.rest.Model.UsuarioEntities.CreacionUsuario.UsuarioUpdate</class>
+
 
       <properties>
          <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>

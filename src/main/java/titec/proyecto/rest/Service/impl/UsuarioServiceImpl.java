@@ -10,7 +10,9 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.CriteriaUpdate;
 import javax.persistence.criteria.Root;
 
+import titec.proyecto.rest.Model.UsuarioEntities.CreacionUsuario.Perfil;
 import titec.proyecto.rest.Model.UsuarioEntities.CreacionUsuario.Usuario;
+import titec.proyecto.rest.Model.UsuarioEntities.CreacionUsuario.UsuarioUpdate;
 import titec.proyecto.rest.Service.UsuarioService;
 
 @Stateless
@@ -59,18 +61,28 @@ public class UsuarioServiceImpl implements UsuarioService {
   }
 
   @Override
-  public  void updateUsuario(Usuario usuario){
+  public  void updateUsuario(UsuarioUpdate usuario){
 
     CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();
-    CriteriaUpdate<Usuario> criteriaUpdate = criteriaBuilder.createCriteriaUpdate(Usuario.class);
-    Root<Usuario> from = criteriaUpdate.from(Usuario.class);
+    CriteriaUpdate<UsuarioUpdate> criteriaUpdate = criteriaBuilder.createCriteriaUpdate(UsuarioUpdate.class);
+    CriteriaUpdate<Perfil> criteriaUpdate2 = criteriaBuilder.createCriteriaUpdate(Perfil.class);
+    Root<UsuarioUpdate> from = criteriaUpdate.from(UsuarioUpdate.class);
+    Root<Perfil> from2 = criteriaUpdate2.from(Perfil.class);
+    
 
     criteriaUpdate.set("nombre",usuario.getNombre());
     criteriaUpdate.set("apellido",usuario.getApellido());
     criteriaUpdate.where(criteriaBuilder.equal(from.get("id"), usuario.getId()));
-    em.createQuery(criteriaUpdate).executeUpdate();
 
-    
+    criteriaUpdate2.set("biografia",usuario.getPerfil().getBiografia());
+    criteriaUpdate2.set("fecha",usuario.getPerfil().getFecha());
+    criteriaUpdate2.set("imagen",usuario.getPerfil().getImagen());
+    criteriaUpdate2.set("idPais",usuario.getPerfil().getIdPais());
+    criteriaUpdate2.where(criteriaBuilder.equal(from2.get("id"), usuario.getId()));
+
+
+    em.createQuery(criteriaUpdate).executeUpdate();
+    em.createQuery(criteriaUpdate2).executeUpdate();
 
   }
 

@@ -3,6 +3,7 @@ package titec.proyecto.rest.Service;
 import javax.ejb.Local;
 
 import titec.proyecto.rest.Model.UsuarioEntities.CreacionUsuario.Usuario;
+import titec.proyecto.rest.Model.UsuarioEntities.CreacionUsuario.UsuarioUpdate;
 
 @Local
 public interface UsuarioService {
@@ -13,7 +14,7 @@ public interface UsuarioService {
 
   void removeUsuario(Long id);
 
-  void updateUsuario(Usuario usuario);
+  void updateUsuario(UsuarioUpdate usuario);
 
 
 

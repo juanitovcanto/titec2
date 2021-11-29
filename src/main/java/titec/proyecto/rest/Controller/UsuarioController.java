@@ -13,6 +13,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import titec.proyecto.rest.Model.UsuarioEntities.CreacionUsuario.Usuario;
+import titec.proyecto.rest.Model.UsuarioEntities.CreacionUsuario.UsuarioUpdate;
 import titec.proyecto.rest.Service.UsuarioService;
 
 @Path("/usuario")
@@ -41,7 +42,7 @@ public class UsuarioController {
     
   }
   @PUT
-  public Response actualizarUsuario(Usuario usuario){
+  public Response actualizarUsuario(UsuarioUpdate usuario){
     usuarioService.updateUsuario(usuario);
     return Response.status(204).build();
     
