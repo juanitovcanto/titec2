@@ -57,8 +57,6 @@ public class UsuarioServiceImpl implements UsuarioService {
   @Override
   public void insertUsuario(Usuario usuario){
     em.persist(usuario);
-
-    //em.persist(usuario.getPerfil());
   }
 
   @Override
