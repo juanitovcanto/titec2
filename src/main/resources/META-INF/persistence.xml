@@ -27,6 +27,8 @@
       <class>titec.proyecto.rest.Model.UsuarioEntities.CreacionUsuario.TipoUsuario</class>
       <class>titec.proyecto.rest.Model.UsuarioEntities.CreacionUsuario.Perfil</class>
       <class>titec.proyecto.rest.Model.UsuarioEntities.CreacionUsuario.UsuarioUpdate</class>
+      <class>titec.proyecto.rest.Model.RecetaEntities.CreacionReceta.Receta</class>
+      <class>titec.proyecto.rest.Model.RecetaEntities.CreacionReceta.Imagen</class>
       <class>titec.proyecto.rest.Model.UsuarioEntities.QueryUsuario.PaisesEspecifico</class>
       <class>titec.proyecto.rest.Model.UsuarioEntities.QueryUsuario.PerfilEspecifico</class>
       <class>titec.proyecto.rest.Model.UsuarioEntities.QueryUsuario.UsuarioEspecifico</class>
