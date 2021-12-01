@@ -1,25 +1,19 @@
 package titec.proyecto.rest.Service.impl;
 
-import javax.inject.Inject;
 import javax.persistence.EntityManager;
-import javax.ws.rs.core.Context;
-import javax.ws.rs.core.UriInfo;
+import javax.persistence.PersistenceContext;
 
-import titec.proyecto.rest.Model.EntitiesFollow.UsuarioFollow;
+import titec.proyecto.rest.Model.FollowEntities.CreacionFollow.Follow;
 import titec.proyecto.rest.Service.FollowService;
 
 public class FollowServiceImpl implements FollowService{
-    @Context
-    UriInfo uriinfo;
     
-    @Inject
+    @PersistenceContext
     private EntityManager em;
 
     @Override
-    public void insert( long id, long id_seguidor){
-        UsuarioFollow usuarioSeguido = em.find(UsuarioFollow.class, id);
-        usuarioSeguido.addUsuario(usuario);
-        em.persist(usuarioSeguido);
+    public void insert(Follow follow){
+        em.persist(follow);
     }
 
 }
