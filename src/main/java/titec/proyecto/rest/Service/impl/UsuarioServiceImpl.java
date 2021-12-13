@@ -57,10 +57,6 @@ public class UsuarioServiceImpl implements UsuarioService {
        
     }
   
-  @Override
-  public void insertUsuario(Usuario usuario){
-    em.persist(usuario);
-  }
 
   @Override
   public void removeUsuario(Long id){
