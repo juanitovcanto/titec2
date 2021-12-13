@@ -32,9 +32,11 @@
       <class>titec.proyecto.rest.Model.UsuarioEntities.QueryUsuario.PaisesEspecifico</class>
       <class>titec.proyecto.rest.Model.UsuarioEntities.QueryUsuario.PerfilEspecifico</class>
       <class>titec.proyecto.rest.Model.UsuarioEntities.QueryUsuario.UsuarioEspecifico</class>
-      <class>titec.proyecto.rest.Model.UsuarioEntities.CreacionFollow.Follow</class>
-
-
+      <class>titec.proyecto.rest.Model.UsuarioEntities.QueryUsuario.SeguidoresQuery</class>
+      <class>titec.proyecto.rest.Model.UsuarioEntities.QueryUsuario.FollowUsuarioEspecifico</class>
+      <class>titec.proyecto.rest.Model.UsuarioEntities.QueryUsuario.RecetaDeUsuarioEspecifico</class>
+      <class>titec.proyecto.rest.Model.UsuarioEntities.QueryUsuario.RecetaDeUsuarioEspecificoImagen</class>
+      <class>titec.proyecto.rest.Model.FollowEntities.CreacionFollow.Follow</class>
 
       <properties>
          <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>

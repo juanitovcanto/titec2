@@ -9,9 +9,7 @@ import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
-import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
-import javax.ws.rs.core.UriInfo;
 
 import titec.proyecto.rest.Model.FollowEntities.CreacionFollow.Follow;
 import titec.proyecto.rest.Service.FollowService;
@@ -21,12 +19,10 @@ import titec.proyecto.rest.Service.FollowService;
 public class FollowController {
     @Inject
     private FollowService followService;
-    @Context
-    private UriInfo uriInfo;
 
     @POST
-    @Consumes(APPLICATION_JSON)
     @Produces(APPLICATION_JSON)
+    @Consumes(APPLICATION_JSON)
     public Response addUsuario(Follow follow){
         Response.ResponseBuilder builder = null;
         try {

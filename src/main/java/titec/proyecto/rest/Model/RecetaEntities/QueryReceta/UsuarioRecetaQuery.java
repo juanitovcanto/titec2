@@ -1,11 +1,13 @@
 package titec.proyecto.rest.Model.RecetaEntities.QueryReceta;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
@@ -25,14 +27,14 @@ public class UsuarioRecetaQuery implements Serializable{
 
   @Column(name = "USERNAME")
   private String username;
-
-  @OneToOne(mappedBy = "usuario")
-  private RecetaQuery receta;
+  
+  @OneToMany(mappedBy = "usuario")
+  private List<RecetaQuery> receta = new ArrayList<>();
 
   public UsuarioRecetaQuery() {
   }
 
-  public UsuarioRecetaQuery(Long id, String nombre, String apellido, String username, RecetaQuery receta) {
+  public UsuarioRecetaQuery(Long id, String nombre, String apellido, String username, List<RecetaQuery> receta) {
     this.id = id;
     this.nombre = nombre;
     this.apellido = apellido;
@@ -72,14 +74,14 @@ public class UsuarioRecetaQuery implements Serializable{
     this.username = username;
   }
 
-  public RecetaQuery getReceta() {
+  public List<RecetaQuery> getReceta() {
     return receta;
   }
 
-  public void setReceta(RecetaQuery receta) {
+  public void setReceta(List<RecetaQuery> receta) {
     this.receta = receta;
   }
 
-  
+ 
   
 }

@@ -10,8 +10,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
@@ -40,15 +40,15 @@ public class RecetaQuery implements Serializable {
   @OneToMany(mappedBy = "receta",fetch = FetchType.LAZY)
   private List<ImagenQuery> imagenes = new ArrayList<>();
 
-  @OneToOne(fetch = FetchType.LAZY)
+  @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "CATEGORIA_ID",referencedColumnName = "ID")
   private CategoriaQuery categoria;
 
-  @OneToOne(fetch = FetchType.LAZY)
+  @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "ID_USER",referencedColumnName = "ID")
   private UsuarioRecetaQuery usuario;
 
-  @OneToOne(fetch = FetchType.LAZY)
+  @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "DIFICULTAD_ID",referencedColumnName = "ID")
   private DificultadQuery dificultad;
 

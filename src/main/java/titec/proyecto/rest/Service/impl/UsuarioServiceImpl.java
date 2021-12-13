@@ -10,12 +10,14 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.CriteriaUpdate;
 import javax.persistence.criteria.Root;
 
+
 import titec.proyecto.rest.DTO.QueryUsuarioDTO.UsuarioEspecificoDTO;
 import titec.proyecto.rest.Mapper.UsuarioEspecificoMapper;
 import titec.proyecto.rest.Model.UsuarioEntities.CreacionUsuario.Perfil;
 import titec.proyecto.rest.Model.UsuarioEntities.CreacionUsuario.Usuario;
 import titec.proyecto.rest.Model.UsuarioEntities.CreacionUsuario.UsuarioUpdate;
 import titec.proyecto.rest.Model.UsuarioEntities.QueryUsuario.UsuarioEspecifico;
+import titec.proyecto.rest.Model.UsuarioEntities.QueryUsuario.UsuarioEspecifico_;
 import titec.proyecto.rest.Service.UsuarioService;
 
 @Stateless
@@ -30,11 +32,12 @@ public class UsuarioServiceImpl implements UsuarioService {
 
     CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();
     CriteriaQuery<UsuarioEspecifico> criteriaQuery = criteriaBuilder.createQuery(UsuarioEspecifico.class);
-    Root<UsuarioEspecifico> from = criteriaQuery.from(UsuarioEspecifico.class);
-    CriteriaQuery<UsuarioEspecifico> select = criteriaQuery.select(from);
 
+    Root<UsuarioEspecifico> usuarioRoot = criteriaQuery.from(UsuarioEspecifico.class);
+    CriteriaQuery<UsuarioEspecifico> select = criteriaQuery.select(usuarioRoot);
+  
     try{
-      select.where(criteriaBuilder.equal(from.get("id"), id));
+      select.where(criteriaBuilder.equal(usuarioRoot.get(UsuarioEspecifico_.id), id));
       TypedQuery<UsuarioEspecifico> typedQuery = em.createQuery(select);
       UsuarioEspecifico resultadoEntity = typedQuery.getSingleResult();
   
