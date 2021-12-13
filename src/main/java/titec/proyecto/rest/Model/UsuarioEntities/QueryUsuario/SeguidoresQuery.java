@@ -1,8 +1,6 @@
-package titec.proyecto.rest.Model.RecetaEntities.QueryReceta;
-
+package titec.proyecto.rest.Model.UsuarioEntities.QueryUsuario;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -15,7 +13,7 @@ import javax.persistence.UniqueConstraint;
 
 @Entity
 @Table(name = "USUARIO",uniqueConstraints = @UniqueConstraint(columnNames = "ID"))
-public class ComentarioUsuarioQuery implements Serializable{
+public class SeguidoresQuery implements Serializable{
 
   private static final long serialVersionUID = 1L;
 
@@ -31,19 +29,19 @@ public class ComentarioUsuarioQuery implements Serializable{
   @Column(name = "USERNAME")
   private String username;
 
-  @OneToMany(mappedBy = "usuario",fetch = FetchType.LAZY)
-  private List<ComentarioRecetaQuery> comentario = new ArrayList<>();
+  @OneToMany(mappedBy = "seguido",fetch = FetchType.LAZY)
+  private List<FollowUsuarioEspecifico> followers;
 
-  public ComentarioUsuarioQuery() {
+  public SeguidoresQuery() {
   }
 
-  public ComentarioUsuarioQuery(Long id, String nombre, String apellido, String username,
-      List<ComentarioRecetaQuery> comentario) {
+  public SeguidoresQuery(Long id, String nombre, String apellido, String username,
+      List<FollowUsuarioEspecifico> followers) {
     this.id = id;
     this.nombre = nombre;
     this.apellido = apellido;
     this.username = username;
-    this.comentario = comentario;
+    this.followers = followers;
   }
 
   public Long getId() {
@@ -78,14 +76,14 @@ public class ComentarioUsuarioQuery implements Serializable{
     this.username = username;
   }
 
-  public List<ComentarioRecetaQuery> getComentario() {
-    return comentario;
+  public List<FollowUsuarioEspecifico> getFollowers() {
+    return followers;
   }
 
-  public void setComentario(List<ComentarioRecetaQuery> comentario) {
-    this.comentario = comentario;
+  public void setFollowers(List<FollowUsuarioEspecifico> followers) {
+    this.followers = followers;
   }
 
-
+ 
   
 }

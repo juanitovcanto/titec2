@@ -1,4 +1,4 @@
-package titec.proyecto.rest.Model.RecetaEntities.QueryReceta;
+package titec.proyecto.rest.Model.UsuarioEntities.QueryUsuario;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -13,7 +13,7 @@ import javax.persistence.UniqueConstraint;
 
 @Entity
 @Table(name = "DIFICULTAD",uniqueConstraints = @UniqueConstraint(columnNames = "ID"))
-public class DificultadQuery implements Serializable{
+public class DificultadUsuarioEspecifico implements Serializable{
   private static final long serialVersionUID = 1L;
 
   @Id
@@ -23,12 +23,12 @@ public class DificultadQuery implements Serializable{
   private String dificultad;
 
   @OneToMany(mappedBy = "dificultad")
-  private List<RecetaQuery> receta = new ArrayList<>();
+  private List<RecetaDeUsuarioEspecifico> receta = new ArrayList<>();
 
-  public DificultadQuery() {
+  public DificultadUsuarioEspecifico() {
   }
 
-  public DificultadQuery(Long id, String dificultad, List<RecetaQuery> receta) {
+  public DificultadUsuarioEspecifico(Long id, String dificultad, List<RecetaDeUsuarioEspecifico> receta) {
     this.id = id;
     this.dificultad = dificultad;
     this.receta = receta;
@@ -50,15 +50,16 @@ public class DificultadQuery implements Serializable{
     this.dificultad = dificultad;
   }
 
-  public List<RecetaQuery> getReceta() {
+  public List<RecetaDeUsuarioEspecifico> getReceta() {
     return receta;
   }
 
-  public void setReceta(List<RecetaQuery> receta) {
+  public void setReceta(List<RecetaDeUsuarioEspecifico> receta) {
     this.receta = receta;
   }
 
- 
   
+
+
   
 }
