@@ -15,13 +15,22 @@ public class RecetaQueryDTO {
   private UsuarioRecetaQueryDTO usuario;
   private DificultadQueryDTO dificultad;
   private List<ComentarioRecetaDTO> comentarios = new ArrayList<>();
+  private List<RecetaLikeQueryDTO> likes = new ArrayList<>();
+  private int numLikes;
   
   public RecetaQueryDTO() {
   }
 
+  
+
+
+
+
+
   public RecetaQueryDTO(Long id, String titulo, String texto, Date fechaPost, Date fechaEdit,
       List<ImagenQueryDTO> imagenes, CategoriaQueryDTO categoria, UsuarioRecetaQueryDTO usuario,
-      DificultadQueryDTO dificultad, List<ComentarioRecetaDTO> comentarios) {
+      DificultadQueryDTO dificultad, List<ComentarioRecetaDTO> comentarios, List<RecetaLikeQueryDTO> likes,
+      int numLikes) {
     this.id = id;
     this.titulo = titulo;
     this.texto = texto;
@@ -32,7 +41,55 @@ public class RecetaQueryDTO {
     this.usuario = usuario;
     this.dificultad = dificultad;
     this.comentarios = comentarios;
+    this.likes = likes;
+    this.numLikes = numLikes;
   }
+
+
+
+
+
+
+
+  public List<RecetaLikeQueryDTO> getLikes() {
+    return likes;
+  }
+
+
+
+
+
+
+
+  public void setLikes(List<RecetaLikeQueryDTO> likes) {
+    this.likes = likes;
+  }
+
+
+
+
+
+
+
+  public int getNumLikes() {
+    return numLikes;
+  }
+
+
+
+
+
+
+
+  public void setNumLikes(int numLikes) {
+    this.numLikes = numLikes;
+  }
+
+
+
+
+
+
 
   public Long getId() {
     return id;

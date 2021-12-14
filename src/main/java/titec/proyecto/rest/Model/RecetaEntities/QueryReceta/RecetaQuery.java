@@ -12,7 +12,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.PostLoad;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.persistence.UniqueConstraint;
 
 
@@ -55,14 +57,21 @@ public class RecetaQuery implements Serializable {
   @OneToMany(mappedBy = "receta",fetch = FetchType.LAZY)
   private List<ComentarioRecetaQuery> comentarios = new ArrayList<>();
 
+  @OneToMany(mappedBy = "receta",fetch = FetchType.LAZY)
+  private List<RecetaLikesQuery> likes = new ArrayList<>();
+
+  @Transient
+  private int numLikes;
+
   public RecetaQuery() {
   }
 
-  
+
+
 
   public RecetaQuery(Long id, String titulo, String texto, Date fechaPost, Date fechaEdit, List<ImagenQuery> imagenes,
       CategoriaQuery categoria, UsuarioRecetaQuery usuario, DificultadQuery dificultad,
-      List<ComentarioRecetaQuery> comentarios) {
+      List<ComentarioRecetaQuery> comentarios, List<RecetaLikesQuery> likes) {
     this.id = id;
     this.titulo = titulo;
     this.texto = texto;
@@ -73,7 +82,29 @@ public class RecetaQuery implements Serializable {
     this.usuario = usuario;
     this.dificultad = dificultad;
     this.comentarios = comentarios;
+    this.likes = likes;
   }
+
+  @PostLoad
+  private void PostLoad(){
+    this.numLikes = likes.size();
+  }
+
+  public int getNumLikes() {
+    return numLikes;
+  }
+
+  public List<RecetaLikesQuery> getLikes() {
+    return likes;
+  }
+
+
+
+
+  public void setLikes(List<RecetaLikesQuery> likes) {
+    this.likes = likes;
+  }
+
 
 
 
